@@ -15,7 +15,7 @@ gcc -O2 -s -lX11 `pkg-config --cflags --libs gtk+-3.0 pangocairo` -o kbi kbi.c
 
 #define ICON_SIZE 16
 #define FONT "Sans 10"
-#define COLOR 0xdfdfdf /* 0x2e3436 */
+#define COLOR 0xDFDFDF /* 0x2E3436 */
 #define X_POS 0
 #define Y_POS 1
 /* #define CENTER_POS */
@@ -78,8 +78,8 @@ static void status_icon_set(applet *data)
     pango_font_description_free(desc);
     cairo_set_source_rgb(cr,
                          (COLOR >> 16) / 255.0,
-                         (COLOR >> 8 & ~(0xff << 8)) / 255.0,
-                         (COLOR & ~(0xffff << 8)) / 255.0);
+                         (COLOR >> 8 & ~(0xFF << 8)) / 255.0,
+                         (COLOR & ~(0xFFFF << 8)) / 255.0);
 #if defined(CENTER_POS)
     pango_layout_get_pixel_extents(layout, &ink, &logical);
     cairo_move_to(cr,
