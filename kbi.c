@@ -100,10 +100,10 @@ static void status_icon_set(applet *data)
     cairo_surface_destroy(surface);
 }
 
-static GdkFilterReturn filter(XEvent *xev,
-                              GdkEvent *event __attribute__((unused)),
-                              applet *data)
+static GdkFilterReturn filter(XEvent *xev, GdkEvent *event, applet *data)
 {
+    (void)event;
+
     if (xev->type == data->xkbEventType &&
         ((XkbEvent *)xev)->any.xkb_type == XkbStateNotify)
     {
@@ -113,8 +113,10 @@ static GdkFilterReturn filter(XEvent *xev,
     return GDK_FILTER_CONTINUE;
 }
 
-int main(int argc __attribute__((unused)), char *argv[])
+int main(int argc, char *argv[])
 {
+    (void)argc;
+
     applet data;
     int dummy;
 
