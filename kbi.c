@@ -25,6 +25,7 @@ typedef struct _applet
     Display *dpy;
     GtkStatusIcon *status_icon;
     int xkbEventType;
+    int pad;
 } applet;
 
 static void activate_cb(applet *data)
